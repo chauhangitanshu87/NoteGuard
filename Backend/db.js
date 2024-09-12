@@ -1,5 +1,5 @@
 const mongoose= require('mongoose')
-const mongoURI = "mongodb://localhost:27017"
+const mongoURI = "mongodb://localhost:27017/Noteguard"
 
 async function connectToMongo() {
     await mongoose.connect(mongoURI).then(()=> 
