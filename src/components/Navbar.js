@@ -1,8 +1,12 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 const Navbar = () => {
+
+    let location = useLocation();
+    
     return (
+        
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Navbar</Link>
