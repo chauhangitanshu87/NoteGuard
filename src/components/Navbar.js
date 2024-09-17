@@ -27,6 +27,7 @@ const Navbar = () => {
                         
                     <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                     <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
+                    <Link className="btn btn-primary mx-1" to="/login" role="button">Logout</Link>
 
                     </form>
                 </div>

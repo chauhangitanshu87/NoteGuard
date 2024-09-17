@@ -12,6 +12,7 @@ import { Alert } from './components/Alert';
 
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Logout from './components/Logout';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <NoteState>
    <Router>
         <Navbar /> 
-        <Alert message="This is amazing React course" />
+        <Alert message="Welcome to the Note Guard Application" />
         <div className="container">
         <Routes>
           <Route exact path="/" element={<Home />}>
@@ -30,6 +31,7 @@ function App() {
 
          <Route exact path="/login" element={<Login/>}/>
          <Route exact path="/signup" element={<Signup/>}/>
+         <Route exact path="/login" element={<Logout/>}/>
 
 
 
