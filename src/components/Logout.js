@@ -9,7 +9,7 @@ const Logout = () => {
     localStorage.removeItem('token');
 
     // Redirect to the login or home page
-    navigate("/login"); // Or navigate("/"), depending on where you want to redirect
+    navigate("/"); // Or navigate("/"), depending on where you want to redirect
   };
 
   return (
