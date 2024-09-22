@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link,useLocation } from "react-router-dom";
+import Logout from './Logout';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
-
-    let location = useLocation();
     
     return (
         
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                {/* <Link className="navbar-brand" to="/">Navbar</Link> */}
+                <span className="navbar-brand">Navbar</span>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -24,10 +27,29 @@ const Navbar = () => {
 
                     </ul>
                     <form className="d-flex">
+
+                    <Link
+                            className="btn btn-outline-primary mx-1" 
+                            to="/login" 
+                            style={{ color: '#555' }}
+                        >
+                            <FontAwesomeIcon icon={faSignInAlt} className="me-1" /> 
+                            Login
+                        </Link>
+                        <Link
+                            className="btn btn-outline-primary mx-1" 
+                            to="/signup" 
+                            style={{ color: '#555' }}
+                        >
+                            <FontAwesomeIcon icon={faUserPlus} className="me-1" /> 
+                            Signup
+                        </Link>
                         
-                    <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                    <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-                    <Link className="btn btn-primary mx-1" to="/login" role="button">Logout</Link>
+                    {/* <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
+                    <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link> */}
+
+                    {/* <Link className="btn btn-primary mx-1" to="/login" role="button">Logout</Link> */}
+                    <Logout/>
 
                     </form>
                 </div>

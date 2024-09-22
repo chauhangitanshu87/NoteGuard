@@ -1,11 +1,22 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState,useEffect} from 'react'
 import noteContext from "../context/noteContext"
-
+import { useNavigate } from 'react-router-dom';
 const AddNote = () => {
     const context = useContext(noteContext);
     const {addNote} = context;
+    // let navigate = useNavigate();
 
     const [note, setNote] = useState({title: "", description: "", tag: ""})
+
+    // useEffect(() => {
+    //     const token = localStorage.getItem('token');
+    //     if (!token) {
+    //         // Redirect to login page if no token is found
+    //         navigate("/login");
+    //     }
+    // }, [navigate]);
+
+
 
     const handleClick = (e)=>{
         e.preventDefault();

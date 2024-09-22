@@ -22,9 +22,10 @@ const Signup = () => {
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken); 
-            history("/");
+            
 
         }
+        history("/login");
       
     }
 
@@ -66,4 +67,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signup 

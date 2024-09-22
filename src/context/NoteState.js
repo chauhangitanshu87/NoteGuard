@@ -82,6 +82,13 @@ const getNotes = async () => {
     }
     setNotes(newNotes);
   } 
+
+    // // Clear Notes (for logout functionality)
+    // const clearNotes = () => {
+    //   setNotes([]); // Clear the notes when user logs out
+    // };
+
+
       return (
         
         <NoteContext.Provider value={{notes, addNote,deleteNote, editNote,getNotes }}>
@@ -90,3 +97,7 @@ const getNotes = async () => {
     )
 }
 export default NoteState;
+
+
+
+

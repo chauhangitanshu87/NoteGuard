@@ -1,4 +1,5 @@
 import React, {useContext,useEffect,useRef,useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import noteContext from "../context/noteContext"
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
@@ -8,10 +9,30 @@ import AddNote from './AddNote';
 const Notes = () => {
     const context = useContext(noteContext);
     const {notes, getNotes,editNote} = context;
+    const navigate = useNavigate(); // Use navigate for redirection
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // State to check login
+
+
+    // useEffect(() => {
+    //     getNotes()
+    //      // eslint-disable-next-line
+    // }, [])
+
     useEffect(() => {
-        getNotes()
-         // eslint-disable-next-line
-    }, [])
+        const token = localStorage.getItem('token');
+        if (!token) {
+            // If token is not present, redirect to login
+            navigate("/login");
+        } else {
+            // If token is present, set isLoggedIn to true and fetch notes
+            setIsLoggedIn(true);
+            getNotes();
+            console.log(token);
+        }
+        // eslint-disable-next-line
+    }, []);
+
+
     const ref = useRef(null)
     const refClose = useRef(null)
     const [note, setNote] = useState({id: "", etitle: "", edescription: "", etag: ""})
@@ -69,8 +90,8 @@ const Notes = () => {
                 </div>
             </div>
 
-            <div className="row my-3">
-                <h2>You Notes</h2>
+            {/* <div className="row my-3">
+                <h2>Your Notes</h2>
 
                 <div className="container mx-2"> 
                 {notes.length===0 && 'No notes to display'}
@@ -79,7 +100,24 @@ const Notes = () => {
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} note={note} />
                 })}
+            </div> */}
+
+<div className="row my-3">
+    {isLoggedIn ? (
+        <>
+            <h2>Your Notes</h2>
+            <div className="container mx-2"> 
+                {notes.length === 0 && 'No notes to display'}
             </div>
+            {notes.map((note) => {
+                return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
+            })}
+        </>
+    ) : (
+        <h2>Please log in to view your notes.</h2>
+    )}
+</div>
+
             </>
     )
 }

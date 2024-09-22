@@ -15,17 +15,23 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 
 
+
 function App() {
   return (
    <>
+    
     <NoteState>
    <Router>
         <Navbar /> 
         <Alert message="Welcome to the Note Guard Application" />
         <div className="container">
         <Routes>
+          
+        
           <Route exact path="/" element={<Home />}>
             </Route>
+            
+
           <Route exact path="/about" element={ <About/>}>
          </Route> 
 
@@ -39,6 +45,7 @@ function App() {
         </div>
       </Router>
       </NoteState>
+      
    </>
   );
 }
